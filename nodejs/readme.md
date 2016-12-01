@@ -8,8 +8,8 @@
 
 `NODE_SCRIPTR_TOKEN`
 
-./node_modules/.bin/nodemon
-
 ## Development
+
+To run the server:
 
 `NODE_TTN_EUI=<eui from ttn> NODE_TTN_KEY=<key from ttn> NODE_SCRIPTR_TOKEN=<token from scriptr> ./node_modules/.bin/nodemon index.js`

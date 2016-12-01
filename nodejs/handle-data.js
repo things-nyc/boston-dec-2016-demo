@@ -6,7 +6,7 @@ var handleData = function (data) {
   // post data to scriptr
   request({
     method: 'POST',
-    url: 'https://api.scriptrapps.io/ttnTest',
+    url: 'https://api.scriptrapps.io/saveRaingarden',
     headers: {
       Authorization: 'bearer ' + process.env.NODE_SCRIPTR_TOKEN
     },
