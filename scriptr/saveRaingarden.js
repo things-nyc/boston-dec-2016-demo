@@ -1,49 +1,78 @@
-// Expected payload from node
-//{{
-//  "payload": "ET1//xsBAP2pBNIWARk00g==",
-//  "fields": {
-//    "air_humidity": 66.015625,
-//    "air_pressure": 1012,
-//    "air_temperature": 27.00390625,
-//    "ambient_light": 1234,
-//    "packet_type": 17,
-//    "payload": "ET1//xsBAP2pBNIWARk00g==",
-//    "soil_humidity": 82.03125,
-//    "soil_temperature": 25.203125,
-//    "vbat": 7.999755859375,
-//    "water_temperature": 22.00390625
-//  },
-//  "port": 1,
-//  "counter": 3131,
-//  "dev_eui": "00000000688E64E5",
-//  "metadata": [
-//    {
-//      "frequency": 904.7,
-//      "datarate": "SF8BW125",
-//      "codingrate": "4/5",
-//      "gateway_timestamp": 3328496412,
-//      "channel": 4,
-//      "server_time": "2016-11-30T03:43:56.376581413Z",
-//      "rssi": -14,
-//      "lsnr": 10.8,
-//      "rfchain": 1,
-//      "crc": 1,
-//      "modulation": "LORA",
-//      "gateway_eui": "008000000000ABFF",
-//      "altitude": 61,
-//      "longitude": -74.03651,
-//      "latitude": 40.75664
-//    }
-//  ]
-//}}
-
 var documents = require('document');
 
 var msg = JSON.parse(request.rawBody);
 
+/*
+var mock-msg = {
+  devEUI: '00000000688E64E5',
+  fields: {
+     air_humidity: 21.875,
+     air_pressure: 1012,
+     air_temperature: 24.203125,
+     ambient_light: 0,
+     packet_type: 17,
+     payload: 'ET1//xg0AP04AAAWsRj2/w==',
+     soil_humidity: 99.609375,
+     soil_temperature: 24.9609375,
+     vbat: 7.999755859375,
+     water_temperature: 22.69140625
+  },
+  counter: 48,
+  port: 1,
+  metadata: { 
+     frequency: 904.3,
+     datarate: 'SF7BW125',
+     codingrate: '4/5',
+     gateway_timestamp: 4143630827,
+     channel: 2,
+     server_time: '2016-12-02T20:31:52.429859147Z',
+     rssi: -63,
+     lsnr: 10.5,
+     rfchain: 0,
+     crc: 1,
+     modulation: 'LORA',
+     gateway_eui: '8DEDC7F4BF59AA10',
+     altitude: 15,
+     longitude: -73.98869,
+     latitude: 40.68539
+  }
+};
+*/
+
+var fields = {
+  counter: msg.counter,
+  devEUI: msg.devEUI,
+  port: msg.port,
+  air_humidity: msg.fields.air_humidity,
+  air_pressure: msg.fields.air_pressure,
+  air_temperature: msg.fields.air_temperature,
+  ambient_light: msg.fields.ambient_light,
+  soil_humidity: msg.fields.soil_humidity,
+  soil_temperature: msg.fields.soil_temperature,
+  vbat: msg.fields.vbat,
+  water_temperature: msg.fields.water_temperature,
+  packet_type: msg.fields.packet_type,
+  payload: msg.fields.payload,
+  frequency: msg.metadata.frequency,
+  datarate: msg.metadata.datarate,
+  codingrate: msg.metadata.codingrate,
+  gateway_timestamp: msg.metadata.gateway_timestamp,
+  channel: msg.metadata.channel,
+  server_time: msg.metadata.server_time,
+  rssi: msg.metadata.rssi,
+  lsnr: msg.metadata.lsnr,
+  rfchain: msg.metadata.rfchain,
+  crc: msg.metadata.crc,
+  modulation: msg.metadata.modulation,
+  gateway_eui: msg.metadata.gateway_eui,
+  altitude: msg.metadata.altitude,
+  longitude: msg.metadata.longitude,
+  latitude: msg.metadata.latitude
+};
+
 if (msg.fields.packet_type == 0x11) {  
   // save data
-  return documents.save(msg);
+  return documents.save(fields);
 } else {
-  return 'Unsupported packet format.';
+  return {error: 'Unsupported packet format.'};
 }

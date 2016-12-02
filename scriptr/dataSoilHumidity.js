@@ -23,6 +23,6 @@ var parseData = function(label, key) {
   return raingardenModel.concat(chartData);
 }
 
-var data = parseData('Air Humidity', 'air_humidity');
+var data = parseData('Soil Humidity', 'soil_humidity');
 
 return data;
