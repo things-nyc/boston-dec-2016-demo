@@ -17,6 +17,8 @@ Why Smart Rain Gardens
 Overview of Solution
 -------
 
+![Block Diagram](block_diag.jpg)
+
 Sensors
 ------
 
