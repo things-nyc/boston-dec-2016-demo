@@ -50,12 +50,25 @@ Lastly, we need just a few miscellaneous components:
 And a few tools:
 
  - Soldering Tools (iron, solder, flux, needle-nose pliers)
- - Notebook
- - Laptop
- - Oscilloscope (optional)
+ - Notebook for notes while wiring
+ - Laptop for firmware development and debugging
+ - Desk vise like [Panavise](http://www.panavise.com/) for holding circuit boards
+ - Oscilloscope (optional) for hardware debugging 
+ 
+TODO: Assembly instructions, with pinouts.
 
 Firmware
 -------
+
+With the node constructed, it's time to write firmware to breathe life into the device!
+
+We used the [ARM mBed](https://developer.mbed.org/) platform for wiring firmware. While traditional development environments (IDEs like Arduino, IAR, Keil) require a software installation, mBed works entirely in your web browser, making it easy to get started.
+
+On mBed, the first step is to find an example application for using the mDot. 
+
+If you want to get started right away, you can [click here](https://developer.mbed.org/users/merckeng/code/mDot_TTN_DHT11_Boston16_CAM/) to fork the project repository on mBed. You will need to create an account on mBed.
+
+
 
 
 
