@@ -75,6 +75,7 @@ By using the mBed compiler's "import" tool, we found a library for each of our s
 
 We imported each of the libraries into our mBed project, and added code to use the libraries, initialize the sensors, read data, and prepare the data for sending to The Things Network. To get started right away, you can [click here](https://developer.mbed.org/users/merckeng/code/mDot_TTN_DHT11_Boston16_CAM/) to fork the project repository on mBed.
 
+This code reads from all sensors and sends a packet of data every 5 seconds. This is for testing and demonstration purposes only! In a real application, you will only want to send about one packet per hour to conserve spectrum for other users.
 
 The Things Network
 -----------------
