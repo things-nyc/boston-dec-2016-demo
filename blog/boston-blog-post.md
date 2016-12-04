@@ -44,6 +44,8 @@ We selected the following sensors:
  - [Soil Temperature and Moisture Sensor](https://www.adafruit.com/products/1298) (SHT10)
  - [Water Temperature Sensor](https://www.adafruit.com/products/381) (DS18B20)
  - [Air Temperature and Humidity Sensor](https://www.adafruit.com/products/385) (DHT22)
+ 
+![SHT10 Sensor in Dirt](dirt.png)
 
 Next we need a microcontroller to read from the sensors, and a radio to send sensor data up to the internet.
 There are many options here. We settled on mDot from MultiTech because it combines a microcontroller and radio into an easy-to-use yet powerful package:
@@ -181,18 +183,29 @@ Now packets will be decoded into human-readable fields in the Messages panel (an
 Scriptr
 -------
 
-mqtt to rest bridge
-dataviz
+Now that we have data flowing from our rain garden sensors,
+we need to patch the MQTT stream provided by TTN into Scriptr's REST interface.
+We do this using [an mqtt2rest bridge](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/nodejs).
+Spin this up either on your laptop or on an internet virtual machine,
+following the instructions in the [repository](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/nodejs) for inserting your TTN and Scriptr credentials.
 
-![SHT10 Sensor in Dirt](dirt.png)
+Next we add the rain garden visualization code to the Scriptr account. You can pull a copy from our [github repository](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/scriptr). The `saveRaingarden.js` script receives packets from TTN, while the `data*.js` scripts visualize the data in the form of graphs.
 
-![Node Close Up](node.png)
+You can view our datastream by visiting (URL).
+
+![Graph](graph.png)
 
 ![Node with Plant](nodeplant.png)
 
-
-
-Call to Action
+What's Next?
 ----
 
-follow Scriptr, Multitech, and TTN NY on Twitter ?
+[Try Scriptr](https://www.scriptr.io/)
+
+[Check out the latest hardware from MultiTech](http://www.multitech.com/)
+
+[Follow The Things Network NYC on Twitter](https://twitter.com/thethingsnyc)
+
+![Node Close Up](node.png)
+
+Rain garden images are from the Wisconsin Dept. of Natural Resources publication PUB-WT-776 2003, used with permission.
