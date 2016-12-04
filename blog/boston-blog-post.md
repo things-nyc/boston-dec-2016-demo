@@ -1,9 +1,14 @@
 Smart Rain Gardens for Greener Cities
 =====================================
 
-TODO:
 
-**Intro**
+
+![Nodes](left_right.png)
+
+
+Why Smart Rain Gardens
+-----
+
 Rain gardens are natural planted areas populated by native species whose topological design and species selection allows for enhanced water-attenuation efficiency. Rain gardens supplement our existing municipal water management capacity during and after water events through runoff and pollutant capture.  In addition, rain gardens also help replenish local aquifers and can also be quite beautiful, enhancing the built environment adjacent to the garden. Rain gardens provide a home for local species of plants and animals to thrive in an otherwise less hospitable built environment.
 
 As our communities grow, the quantity of undeveloped land is dwindling, reducing the amount of open land available to passively absorb water during water events.  Grassy areas are not enough.  While somewhat porous, lawn areas are only 30% as effective in water-attenuation as a well-designed rain garden. Communities are looking for innovative and cost-effective ways to supplement overtaxed water management systems during water events (which have been increasing in frequency and severity in recent years). Rain gardens provide an excellent supplementary solution to help reduce the immediate need for costly municipal water management upgrades while also allowing for citizen engagement and ownership over their local community.
@@ -14,15 +19,6 @@ Through the use of [monitoring nodes](https://github.com/things-nyc/boston-dec-2
 
 Leveraging an affordable long range radio wide area network [LoRaWAN radio technology](https://www.lora-alliance.org/What-Is-LoRa/LoRaWAN-White-Papers) in conjunction with [The Things Network](https://www.thethingsnetwork.org/) (TTN) to route data from a local monitoring node up to TTN backend, and then over to [Scriptr]( https://www.scriptr.io/) for data aggregation and visualization, local communities can immediately see and demonstrate how their rain gardens are providing a meaningful and lasting change in their communities.
 
-
-
-Overview of demo'd solution,
-including block diagram
-
-Discuss each piece of the system:
-
-Why Smart Rain Gardens
------
 
 Overview of Solution
 -------
@@ -172,6 +168,11 @@ Scriptr
 mqtt to rest bridge
 dataviz
 
+![SHT10 Sensor in Dirt](dirt.png)
+
+![Node Close Up](node.png)
+
+![Node with Plant](nodeplant.png)
 
 Call to Action
 ----
