@@ -2,6 +2,7 @@ Smart Rain Gardens for Greener Cities
 =====================================
 
 
+![Raingarden Drawing](raingarden.png)
 
 ![Nodes](left_right.png)
 
@@ -18,6 +19,8 @@ In the greater New York and New Jersey harbor area, we are particularly sensitiv
 Through the use of [monitoring nodes](https://github.com/things-nyc/boston-dec-2016-demo), we have access to real-time empirical data. By making datasets available ([here is an example of an open data portal](https://www.data.gov/)) to the general public, stakeholders may conduct analyses of water flow, and subsequently develop, recommend, and implement methodologies to effectively manage municipal runoff. [Utilizing connected devices/IoT](https://github.com/things-nyc/boston-dec-2016-demo) to monitor rain gardens, citizen-scientists can assist local government to help quantify rain-garden capacity and provide a compelling, empirical argument for inclusion into future civic planning, or even into future building code requirements.
 
 Leveraging an affordable long range radio wide area network [LoRaWAN radio technology](https://www.lora-alliance.org/What-Is-LoRa/LoRaWAN-White-Papers) in conjunction with [The Things Network](https://www.thethingsnetwork.org/) (TTN) to route data from a local monitoring node up to TTN backend, and then over to [Scriptr]( https://www.scriptr.io/) for data aggregation and visualization, local communities can immediately see and demonstrate how their rain gardens are providing a meaningful and lasting change in their communities.
+
+![Raingarden Drawing](raingarden_birdseye.png)
 
 
 Overview of Solution
@@ -173,6 +176,8 @@ dataviz
 ![Node Close Up](node.png)
 
 ![Node with Plant](nodeplant.png)
+
+![Urban Rain Garden](parking.png)
 
 Call to Action
 ----
