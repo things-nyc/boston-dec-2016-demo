@@ -23,10 +23,10 @@ Hardware
 -------
 
 The first thing to consider when building an Internet of Things device is,
-what exactly is being measured? For a rain garden, 
+what exactly is being measured? For a rain garden,
 we want to know the temperature and moisture of the growing soil,
 the temperature of water leaving the drain spout and entering the garden,
-as well as envronmental conditions like light level, air temperature, and humidity.
+as well as environmental conditions like light level, air temperature, and humidity.
 
 To monitor these variables, we will need a suite of sensors.
 We selected the following sensors:
@@ -41,7 +41,7 @@ There are many options here. We settled on mDot from MultiTech because it combin
 
  - [MultiTech mDot](http://www.multitech.com/models/94557148LF) (MTDOT-915-X1P-SMA-1)
  - [mDot Developer Kit](http://www.multitech.com/models/94558010LF) (MTUDK2-ST-MDOT)
- 
+
 Lastly, we need just a few miscellaneous components:
 
  - Thin hookup wire (30AWG "wirewrap" wire works great)
@@ -50,11 +50,13 @@ Lastly, we need just a few miscellaneous components:
 And a few tools:
 
  - Soldering Tools (iron, solder, flux, needle-nose pliers)
+ - Safety glasses
+ - An area with good ventilation to solder your components
  - Notebook for notes while wiring
  - Laptop for firmware development and debugging
  - Desk vise like [Panavise](http://www.panavise.com/) for holding circuit boards
- - Oscilloscope (optional) for hardware debugging 
- 
+ - Oscilloscope (optional) for hardware debugging
+
 TODO: Assembly instructions, with pinouts.
 
 Firmware
@@ -73,19 +75,19 @@ By using the mBed compiler's "import" tool, we found a library for each of our s
  - [SHTx Library courtesy of Ron of NegativeBlack](https://developer.mbed.org/users/richardlane/code/DS18B20_1wire/)
  - [TSL2561_I2C Library by Karl Maxwell](https://developer.mbed.org/users/karlmaxwell67/code/TSL2561_I2C/)
 
-We imported each of the libraries into our mBed project, and added code to use the libraries, initialize the sensors, read data, and prepare the data for sending to The Things Network. To get started right away, you can [click here](https://developer.mbed.org/users/merckeng/code/mDot_TTN_DHT11_Boston16_CAM/) to fork the project repository on mBed. Not that this code reads from all sensors and sends a packet of data every 5 seconds. This is for testing and demonstration purposes only! In a real application, you will only want to send about one packet per hour to conserve spectrum for other users.
+We imported each of the libraries into our mBed project, and added code to use the libraries, initialize the sensors, read data, and prepare the data for sending to The Things Network. To get started right away, you can [click here](https://developer.mbed.org/users/merckeng/code/mDot_TTN_DHT11_Boston16_CAM/) to fork the project repository on mBed. Note that this code reads from all sensors and sends a packet of data every 5 seconds. *This is for testing and demonstration purposes only!* In a real application, you will only want to send about one packet per hour to conserve spectrum for other users.
 
 Putting the code onto the mDot is incredibly easy with mBed: Just plug the development board into your laptop using the USB cable. A storage 'drive' will appear, that looks on your PC like a USB flash drive. You then click "compile" in mBed, a '.bin' file downloads to your computer, and you simply drag-and-drop it from the downloads folder into the 'drive'. You will see flashing lights on the development board, and soon it will start running your program.
 
 You can get a view into what is going on inside the mDot by opening a serial terminal program on your PC (like RealTerm or TeraTerm on Windows, or "screen" on OSX and Linux):
 
     screen /dev/ttyACM0 115200
-    
+
 
 The Things Network
 -----------------
 
-Now that the hardware is transmitting data, we need to register our device in an Application on The Things Network.
+Now that the hardware is transmitting data, we need to register our device with an Application on The Things Network.
 
 We assume that you have The Things Network coverage already. If you live far away from civilization, you may need to [setup your own gateway](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=active&q=how+to+setup+the+things+network+gateway+).
 
@@ -93,18 +95,18 @@ To setup our application, we go to [The Things Network dashboard](https://accoun
 
  - Click on "Create an Application" and follow the on-screen instructions.
  - Copy the App EUI. This number uniquely identifies your application.
- 
+
 ![App EUI](account.png)
 
  - Next click on "Register a Device"
  - Select ABP (Activation by Personalization)
  - Click "Register"
- 
+
 ![Register Device](register.png)
 
  - Copy the Dev Address, App Session Key, and Network Session Keys in the "msb" format.
- - Click "Relax Frame Count" (this is OK to do for development nodes, but not in production).
- 
+ - Click "Relax Frame Count" (this is OK to do for development nodes, but *not* in production).
+
 ![IDs](ids.png)
 
 Now that you have copied Dev Address, App Session Key, and Network Session Key, go back to mBed and add these strings to the main.cpp file. This will uniquely identify your node on TTN and provide encryption over-the-air (and over-the-Internet). Recompile and download to your node.
@@ -165,4 +167,3 @@ Call to Action
 ----
 
 follow Scriptr, Multitech, and TTN NY on Twitter ?
-
