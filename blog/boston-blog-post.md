@@ -189,9 +189,14 @@ We do this using [an mqtt2rest bridge](https://github.com/things-nyc/boston-dec-
 Spin this up either on your laptop or on an internet virtual machine,
 following the instructions in the [repository](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/nodejs) for inserting your TTN and Scriptr credentials.
 
-Next we add the rain garden visualization code to the Scriptr account. You can pull a copy from our [github repository](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/scriptr). The `saveRaingarden.js` script receives packets from TTN, while the `data*.js` scripts visualize the data in the form of graphs.
+Next we add the rain garden visualization code to the Scriptr account. You can pull a copy from our [github repository](https://github.com/things-nyc/boston-dec-2016-demo/tree/master/scriptr). Let's walk through how it works:
 
-You can view our datastream by visiting (URL).
+ - The `saveRaingarden` script receives packets from TTN. We check that the packet is of the correct type, and then save it using Scriptr's [document](https://www.scriptr.io/documentation#documentation-documentdocumentModule) module.
+ - The `data*` scripts describe how to pull each type of sensor data out of the saved packets.
+ - Then the `chart*` scripts configure the apperence of the charts.
+ - Lastly, `dashboard.html` brings all the charts together in one webpage.
+
+You can view our datastream by visiting http://ttn-raingarden.scriptrapps.io/dashboard.html.
 
 ![Graph](graph.png)
 
@@ -200,12 +205,14 @@ You can view our datastream by visiting (URL).
 What's Next?
 ----
 
-[Try Scriptr](https://www.scriptr.io/)
-
-[Check out the latest hardware from MultiTech](http://www.multitech.com/)
-
-[Follow The Things Network NYC on Twitter](https://twitter.com/thethingsnyc)
+In this post we didn't even scratch the surface of IoT for a more verdent society. To learn more about the technology, we recommend you [try Scriptr](https://www.scriptr.io/), [check out the latest hardware from MultiTech](http://www.multitech.com/), and [follow The Things Network NYC on Twitter](https://twitter.com/thethingsnyc).
 
 ![Node Close Up](node.png)
+
+
+Acknowledgements
+----
+
+This project materialized through two mini hackathons by The Things Network New York team, including [Forrest Filler](https://twitter.com/forrestfiller), [Mimi Flynn](https://twitter.com/mimiflynn), Manny Tsarnas, Frank Leon Rose, Dan Lavin, and [Terry Moore](https://twitter.com/TmmMcci). This post was co-written with Forrest. 
 
 Rain garden images are from the Wisconsin Dept. of Natural Resources publication PUB-WT-776 2003, used with permission.
